@@ -47,3 +47,8 @@ def update_gpu(gpu_id: int, updated_gpu: GPU):
             gpus[index] = GPU(id=gpu_id, **gpu_data)
 
 
+@app.delete("/gpu/{gpu_id}")
+def delete_gpu(gpu_id: int):
+    for index, gpu in enumerate(gpus):
+        if gpu.id == gpu_id:
+            del gpus[index]
